@@ -1,7 +1,7 @@
 #=============================================================================#
 #MIT License
 
-#Copyright (c) 2023 沉默の金
+#Copyright (c) 2023 JayKwok
 
 #Permission is hereby granted, free of charge, to any person obtaining a copy
 #of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +22,7 @@
 #SOFTWARE.
 #=============================================================================#
 
-name: Build OpenWrt-K
+name: Build OpenWrt
 on:
   schedule:
     - cron: '0 4 * * *'
@@ -371,9 +371,9 @@ jobs:
             compiler=$(curl -s https://api.github.com/users/$(echo ${{ github.repository }} | sed "s/\/.*//g") 2>/dev/null  |grep '"name":\ "'|sed 's/  "name":\ "//'|sed 's/",//' 2>/dev/null)
           fi
           echo 'Compiled by' $compiler
-          sed -i "s/Compiled by 沉默の金/Compiled by $compiler/g" $OPENWRT_ROOT_PATH/files/etc/uci-defaults/zzz-chenmozhijin
+          sed -i "s/Compiled by 沉默の金/Compiled by JayKwok/g" $OPENWRT_ROOT_PATH/files/etc/uci-defaults/zzz-chenmozhijin
           cat $OPENWRT_ROOT_PATH/files/etc/uci-defaults/zzz-chenmozhijin | grep 'Compiled by'
-          echo "::notice ::编译者已替换为$compiler"
+          echo "::notice ::编译者已替换为JayKwok"
           #添加编译信息
           export OPENWRT_TAG_BRANCH="$(sed -n '/openwrt_tag\/branch/p' $GITHUB_WORKSPACE/config/${{ matrix.config }}/OpenWrt-K/compile.config | sed -e 's/.*=//')"
           echo "COMPILE_START_TIME=\"${{ needs.planning.outputs.starttime }}\"" >> $OPENWRT_ROOT_PATH/files/etc/openwrt-k_info
@@ -694,7 +694,7 @@ jobs:
           timezone=$(grep "^timezone=" $GITHUB_WORKSPACE/config/${{ matrix.config }}/OpenWrt-K/openwrtext.config|sed -e "s/timezone=//" -e "s/ //g")
           zonename=$(grep "^zonename=" $GITHUB_WORKSPACE/config/${{ matrix.config }}/OpenWrt-K/openwrtext.config|sed -e "s/zonename=//" -e "s/ //g")
           echo "::notice ::设置openwrt默认ip为$ipaddr,时区为$timezone,时区区域名称为$zonename"
-          sed -i -e "s/set system.@system\[-1].hostname='OpenWrt'/set system.@system\[-1].hostname='OpenWrt-k'/g" -e "s/set system.@system\[-1].timezone='UTC'/set system.@system\[-1].timezone=\'$timezone\'/g" -e "/set system.@system\[-1].timezone='CST-8'/i\		set system.@system\[-1].zonename=\'$zonename\'" $OPENWRT_ROOT_PATH/package/base-files/files/bin/config_generate
+          sed -i -e "s/set system.@system\[-1].timezone='UTC'/set system.@system\[-1].timezone=\'$timezone\'/g" -e "/set system.@system\[-1].timezone='CST-8'/i\		set system.@system\[-1].zonename=\'$zonename\'" $OPENWRT_ROOT_PATH/package/base-files/files/bin/config_generate
           sed -i "s#^uci set network.lan.ipaddr=.*#uci set network.lan.ipaddr=\"$ipaddr\"#g"  $OPENWRT_ROOT_PATH/files/etc/uci-defaults/zzz-chenmozhijin
 
       - name: 检查剩余空间
