@@ -365,11 +365,11 @@ jobs:
           chmod 755 $OPENWRT_ROOT_PATH/files/etc/uci-defaults/*
           chmod 755 $OPENWRT_ROOT_PATH/files/usr/share/cmzj/openwrt-k_tool.sh
           # 设置密码为password
-          rm -rf package/base-files/files/etc/shadow
-          cp -rf $GITHUB_WORKSPACE/file/banner package/base-files/files/etc/shadow
+          rm -rf $OPENWRT_ROOT_PATH/package/base-files/files/etc/shadow
+          cp -rf $GITHUB_WORKSPACE/file/banner $OPENWRT_ROOT_PATH/package/base-files/files/etc/shadow
           # 删除banner替换
-          rm -rf package/base-files/files/etc/banner
-          cp -rf $GITHUB_WORKSPACE/file/banner package/base-files/files/etc/banner
+          rm -rf $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
+          cp -rf $GITHUB_WORKSPACE/file/banner $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
           ##生成版本号
           echo $(TZ=UTC-8 date +"%Y%m%d%M") > version
           ##Socat更改为端口转发
