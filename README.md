@@ -87,7 +87,7 @@
 ## 感谢
 
  感谢以下项目与各位制作软件包大佬的付出
-+ [chenmozhijin](https://github.com/chenmozhijin/OpenWrt-K)
++ [沉默の金](https://github.com/chenmozhijin/OpenWrt-K)
 + [iStoreOS官网](https://github.com/istoreos/istoreos)
 + [OpenWrt官网](https://github.com/openwrt/openwrt/)
 + [lede](https://github.com/coolsnowwolf/lede)
