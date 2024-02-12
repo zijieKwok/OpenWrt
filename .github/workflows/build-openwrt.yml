@@ -371,24 +371,24 @@ jobs:
           rm -rf $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
           cp -rf $GITHUB_WORKSPACE/file/banner $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
           ##生成版本号
-          echo $(TZ=UTC-8 date +"%Y%m%d%M") > version
+          echo $(TZ=UTC-8 date +"%Y%m%d%M") > $OPENWRT_ROOT_PATHfeeds/version
           ##Socat更改为端口转发
-          sed -i 's/msgstr "Socat"/msgstr "端口转发"/g' feeds/luci/applications/luci-app-socat/po/zh_Hans/socat.po
+          sed -i 's/msgstr "Socat"/msgstr "端口转发"/g' $OPENWRT_ROOT_PATHfeeds/feeds/luci/applications/luci-app-socat/po/zh_Hans/socat.po
           ##修改ttyd到系统菜单
-          sed -i 's/services/system/g' feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
+          sed -i 's/services/system/g' $OPENWRT_ROOT_PATHfeeds/feeds/luci/applications/luci-app-ttyd/root/usr/share/luci/menu.d/luci-app-ttyd.json
           ##修改samba4到NAS菜单
-          sed -i 's/services/nas/g' feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
+          sed -i 's/services/nas/g' $OPENWRT_ROOT_PATHfeeds/feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
           ##修改upnp到NAS菜单
-          sed -i 's/services/nas/g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
+          sed -i 's/services/nas/g' $OPENWRT_ROOT_PATHfeeds/feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
           ##immortalwrt源码增加汉化
-          echo -e "\nmsgid \"Control\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          echo -e "msgstr \"控制\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          echo -e "\nmsgid \"Login\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          echo -e "msgstr \"登录\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          echo -e "\nmsgid \"MAC-Address\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          echo -e "msgstr \"MAC地址\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          echo -e "\nmsgid \"IPv4-Address\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          echo -e "msgstr \"IPv4地址\"" >> feeds/luci/modules/luci-base/po/zh_Hans/base.po
+          echo -e "\nmsgid \"Control\"" >> $OPENWRT_ROOT_PATHfeeds/luci/modules/luci-base/po/zh_Hans/base.po
+          echo -e "msgstr \"控制\"" >> $OPENWRT_ROOT_PATHfeeds/feeds/luci/modules/luci-base/po/zh_Hans/base.po
+          echo -e "\nmsgid \"Login\"" >> $OPENWRT_ROOT_PATHfeeds/feeds/luci/modules/luci-base/po/zh_Hans/base.po
+          echo -e "msgstr \"登录\"" >> $OPENWRT_ROOT_PATHfeeds/feeds/luci/modules/luci-base/po/zh_Hans/base.po
+          echo -e "\nmsgid \"MAC-Address\"" >> $OPENWRT_ROOT_PATHfeeds/feeds/luci/modules/luci-base/po/zh_Hans/base.po
+          echo -e "msgstr \"MAC地址\"" >> $OPENWRT_ROOT_PATHfeeds/feeds/luci/modules/luci-base/po/zh_Hans/base.po
+          echo -e "\nmsgid \"IPv4-Address\"" >> $OPENWRT_ROOT_PATHfeeds/feeds/luci/modules/luci-base/po/zh_Hans/base.po
+          echo -e "msgstr \"IPv4地址\"" >> $OPENWRT_ROOT_PATHfeeds/feeds/luci/modules/luci-base/po/zh_Hans/base.po
 
       - name: 加载自定义配置并生成配置文件
         working-directory: ${{ env.OPENWRT_ROOT_PATH }}
