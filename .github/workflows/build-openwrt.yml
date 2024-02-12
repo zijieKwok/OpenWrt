@@ -365,7 +365,8 @@ jobs:
           chmod 755 $OPENWRT_ROOT_PATH/files/etc/uci-defaults/*
           chmod 755 $OPENWRT_ROOT_PATH/files/usr/share/cmzj/openwrt-k_tool.sh
           # 设置密码为password
-          sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/' package/base-files/files/etc/shadow
+          rm -rf package/base-files/files/etc/shadow
+          cp -rf $OPENWRT_ROOT_PATH/file/banner package/base-files/files/etc/shadow
           # 删除banner替换
           rm -rf package/base-files/files/etc/banner
           cp -rf $OPENWRT_ROOT_PATH/file/banner package/base-files/files/etc/banner
