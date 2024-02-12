@@ -368,7 +368,7 @@ jobs:
           sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/' $OPENWRT_ROOT_PATH/package/base-files/files/etc/shadow
           # 删除banner替换
           rm -rf $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
-          cp -rf $GITHUB_WORKSPACE/file/banner $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
+          cp -rf $GITHUB_WORKSPACE/file/banner $OPENWRT_ROOT_PATH/package/base-files/files/etc/
           ##生成版本号
           echo $(TZ=UTC-8 date +"%Y%m%d%M") > $OPENWRT_ROOT_PATH/version
           ##Socat更改为端口转发
