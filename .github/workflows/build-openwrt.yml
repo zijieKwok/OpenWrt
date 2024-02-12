@@ -371,7 +371,7 @@ jobs:
           rm -rf $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
           cp -rf $GITHUB_WORKSPACE/file/banner $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
           ##生成版本号
-          echo $(TZ=UTC-8 date +"%Y%m%d%M") > $OPENWRT_ROOT_PATHfeeds/version
+          echo $(TZ=UTC-8 date +"%Y%m%d%M") > $OPENWRT_ROOT_PATH/version
           ##Socat更改为端口转发
           sed -i 's/msgstr "Socat"/msgstr "端口转发"/g' $OPENWRT_ROOT_PATHfeeds/feeds/luci/applications/luci-app-socat/po/zh_Hans/socat.po
           ##修改ttyd到系统菜单
