@@ -367,8 +367,8 @@ jobs:
           ##设置密码为password
           sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/' $OPENWRT_ROOT_PATH/package/base-files/files/etc/shadow
           # 删除替换内核为5.15.139
-          #rm -rf $OPENWRT_ROOT_PATH/include/kernel-5.15
-          #cp -rf $GITHUB_WORKSPACE/file/kernel-5.15 $OPENWRT_ROOT_PATH/include/
+          rm -rf $OPENWRT_ROOT_PATH/include/kernel-5.15
+          cp -rf $GITHUB_WORKSPACE/file/kernel-5.15 $OPENWRT_ROOT_PATH/include/
           # 删除banner替换
           rm -rf $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
           cp -rf $GITHUB_WORKSPACE/file/banner $OPENWRT_ROOT_PATH/package/base-files/files/etc/
