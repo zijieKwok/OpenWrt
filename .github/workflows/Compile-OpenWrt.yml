@@ -365,7 +365,7 @@ jobs:
           chmod 755 $OPENWRT_ROOT_PATH/files/etc/uci-defaults/*
           chmod 755 $OPENWRT_ROOT_PATH/files/usr/share/cmzj/openwrt-k_tool.sh
           ##加入作者信息
-          sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JacKwok'/g" $OPENWRT_ROOT_PATH/package/base-files/files/etc/openwrt_release
+          #sed -i "s/DISTRIB_REVISION='*.*'/DISTRIB_REVISION=' By JacKwok'/g" $OPENWRT_ROOT_PATH/package/base-files/files/etc/openwrt_release
           ##设置密码为password
           sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/' $OPENWRT_ROOT_PATH/package/base-files/files/etc/shado
           ##删除banner替换
@@ -386,8 +386,8 @@ jobs:
           echo -e "msgstr \"控制\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "\nmsgid \"Login\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "msgstr \"登录\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          echo -e "\nmsgid \"NAS\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          echo -e "msgstr \"网络存储\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
+          #echo -e "\nmsgid \"NAS\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
+          #echo -e "msgstr \"网络存储\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "\nmsgid \"MAC-Address\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "msgstr \"MAC地址\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "\nmsgid \"IPv4-Address\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
