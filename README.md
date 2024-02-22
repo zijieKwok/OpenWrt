@@ -22,7 +22,8 @@ WiFi名称:AreyouOK 无密码
 
 已内置以下软件包：
 
-1. LuCI插件：    
+1. LuCI插件：
+  LuCI主题：[Argon](https://github.com/jerrykuku/luci-theme-argon)
   [luci-app-argon-config](https://github.com/jerrykuku/luci-app-argon-config):Argon 主题设置  
   luci-app-quickstart：quickstart是iStoreOS界面  
   luci-app-iStore： 软件商店  
@@ -46,7 +47,7 @@ WiFi名称:AreyouOK 无密码
   luci-app-socat：端口转发 
   tailscale：内网穿透
 
-3. LuCI主题：[Argon](https://github.com/jerrykuku/luci-theme-argon)
+3.
 
     > + 以上软件包都在生成在Releases的package.zip文件中，可安装使用。
 
