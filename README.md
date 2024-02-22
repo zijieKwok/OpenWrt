@@ -1,10 +1,10 @@
 # OpenWrt
 
-[![GitHub Repo stars](https://img.shields.io/github/stars/zijieKwok/OpenWrt-K)](https://github.com/zijieKwok/OpenWrt-K/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/zijieKwok/OpenWrt-K)](https://github.com/zijieKwok/OpenWrt-K/forks?include=active%2Carchived%2Cinactive%2Cnetwork&page=1&period=2y&sort_by=stargazer_counts)
-[![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/zijieKwok/OpenWrt-K)](https://github.com/zijieKwok/OpenWrt-K/commits)
-[![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/zijieKwok/OpenWrt-K)](https://github.com/zijieKwok/OpenWrt-K/commits)
-[![Workflow Status](https://github.com/zijieKwok/OpenWrt-K/actions/workflows/build-openwrt.yml/badge.svg)](https://github.com/zijieKwok/OpenWrt-K/actions)
+[![GitHub Repo stars](https://img.shields.io/github/stars/zijieKwok/OpenWrt)](https://github.com/zijieKwok/OpenWrt/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/zijieKwok/OpenWrt)](https://github.com/zijieKwok/OpenWrt/forks?include=active%2Carchived%2Cinactive%2Cnetwork&page=1&period=2y&sort_by=stargazer_counts)
+[![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/zijieKwok/OpenWrt)](https://github.com/zijieKwok/OpenWrt/commits)
+[![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/zijieKwok/OpenWrt)](https://github.com/zijieKwok/OpenWrt/commits)
+[![Workflow Status](https://github.com/zijieKwok/OpenWrt/actions/workflows/build-openwrt.yml/badge.svg)](https://github.com/zijieKwok/OpenWrt/actions)
 > OpenWRT软件包与固件自动云编译
 
 
