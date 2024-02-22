@@ -23,9 +23,9 @@
 #=============================================================================#
 
 name: Build OpenWrt
-#on:
-#  schedule:
-#    - cron: '0 4 * * *'
+on:
+  schedule:
+    - cron: '0 4 * * *'
 #  push:
 #    branches:
 #      - main
