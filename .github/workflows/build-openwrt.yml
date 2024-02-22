@@ -56,7 +56,7 @@ jobs:
       id: time
       run: |
         sudo timedatectl set-timezone "Asia/Shanghai"
-        starttime=$(date +"%y.%m.%d-%H")
+        starttime=$(TZ=UTC-8 date +"%Y%m%d%M")
         echo starttime=$starttime >> "$GITHUB_OUTPUT"
         echo starttime=$starttime >> "$GITHUB_ENV"
         echo "::notice ::编译开始时间为：$starttime"
