@@ -313,6 +313,7 @@ jobs:
         run: git checkout $(sed -n '/openwrt_tag\/branch/p' $GITHUB_WORKSPACE/config/${{ matrix.config }}/OpenWrt-K/compile.config | sed -e 's/.*=//')
 
       - name: 更换内核
+        run: |
           rm -rf $OPENWRT_ROOT_PATH/include/kernel-5.15
           cp -rf $GITHUB_WORKSPACE/file/kernel-5.15 $OPENWRT_ROOT_PATH/include/
 
