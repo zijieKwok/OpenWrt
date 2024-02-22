@@ -22,10 +22,10 @@
 #SOFTWARE.
 #=============================================================================#
 
-name: compile OpenWrt
-on:
-  schedule:
-    - cron: '0 4 * * *'
+name: Build OpenWrt
+#on:
+#  schedule:
+#    - cron: '0 4 * * *'
 #  push:
 #    branches:
 #      - main
@@ -308,15 +308,15 @@ jobs:
           echo "OPENWRT_ROOT_PATH=$OPENWRT_ROOT_PATH" >> $GITHUB_ENV
           cat $GITHUB_ENV >> $GITHUB_WORKSPACE/build1_ENV
 
+      - name: 更换换内核
+        rm -rf $OPENWRT_ROOT_PATH/include/kernel-5.15
+        cp -rf $GITHUB_WORKSPACE/file/kernel-5.15 $OPENWRT_ROOT_PATH/include/
+
       - name: 切换标签/分支
         working-directory: ${{ env.OPENWRT_ROOT_PATH }}
         run: git checkout $(sed -n '/openwrt_tag\/branch/p' $GITHUB_WORKSPACE/config/${{ matrix.config }}/OpenWrt-K/compile.config | sed -e 's/.*=//')
 
-      - name: 更换内核
-	    rm -rf $OPENWRT_ROOT_PATH/include/kernel-5.15
-		cp -rf $GITHUB_WORKSPACE/file/kernel-5.15 $OPENWRT_ROOT_PATH/include/
-
-	  - name: 复制cmzj_package
+      - name: 复制cmzj_package
         working-directory: ${{ env.WORKSPACE_ROOT_PATH }}
         run: |
           cp -r $CMZJ_PACKAGE_ROOT_PATH $OPENWRT_ROOT_PATH/package/cmzj_package
@@ -398,7 +398,9 @@ jobs:
           sed -i 's/ssid=OpenWrt/ssid=AreyouOK/g' $OPENWRT_ROOT_PATH/package/kernel/mac80211/files/lib/wifi/mac80211.sh
           ##修改upnp到NAS菜单
           #sed -i 's/services/nas/g' $OPENWRT_ROOT_PATH/feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
-
+          
+          
+          
       - name: 加载自定义配置并生成配置文件
         working-directory: ${{ env.OPENWRT_ROOT_PATH }}
         run: |
