@@ -369,6 +369,7 @@ jobs:
           ##删除banner替换
           rm -rf $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
           cp -rf $GITHUB_WORKSPACE/file/banner $OPENWRT_ROOT_PATH/package/base-files/files/etc/
+          chmod 755 $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
           ##生成版本号
           echo $(TZ=UTC-8 date +"%Y%m%d%M") > $OPENWRT_ROOT_PATH/version
           ##Socat更改为端口转发
@@ -378,14 +379,12 @@ jobs:
           ##修改samba4到NAS菜单
           sed -i 's/services/nas/g' $OPENWRT_ROOT_PATH/feeds/luci/applications/luci-app-samba4/root/usr/share/luci/menu.d/luci-app-samba4.json
           ##修改upnp到NAS菜单
-          sed -i 's/services/nas/g' $OPENWRT_ROOT_PATH/feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
+          #sed -i 's/services/nas/g' $OPENWRT_ROOT_PATH/feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
           ##immortalwrt源码增加汉化
           echo -e "\nmsgid \"Control\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "msgstr \"控制\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "\nmsgid \"Login\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "msgstr \"登录\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          #echo -e "\nmsgid \"NAS\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          #echo -e "msgstr \"网络存储\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "\nmsgid \"MAC-Address\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "msgstr \"MAC地址\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "\nmsgid \"IPv4-Address\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
