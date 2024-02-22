@@ -16,14 +16,13 @@ WiFi名称:AreyouOK 无密码
 2. 自带丰富的LuCI插件与软件包（见内置功能）
 3. 自带SmartDNS+AdGuard Home配置（AdGuard Home 默认密码：```password```）
 4. 随固件编译几乎全部kmod（无sfe），拒绝kernel版本不兼容(kmod在Releases allkmod.zip中，建议与固件一同下载)
-5. 提供多种格式固件以应对不同需求
+5. 只提供x86_64格式固件下载
 
 ### 内置功能
 
 已内置以下软件包：
 
-1. LuCI插件：  
-  [luci-app-adguardhome](https://github.com/chenmozhijin/luci-app-adguardhome) :AdGuardHome广告屏蔽工具的luci设置界面  
+1. LuCI插件：    
   [luci-app-argon-config](https://github.com/jerrykuku/luci-app-argon-config):Argon 主题设置  
   luci-app-quickstart：quickstart是iStoreOS界面  
   luci-app-iStore： 软件商店
@@ -32,7 +31,8 @@ WiFi名称:AreyouOK 无密码
   luci-app-fileassistant：文件助手  
   luci-app-firewall：防火墙   
   luci-app-opkg：软件包  
-  [luci-app-openclash](https://github.com/vernesong/OpenClash):可运行在 OpenWrt 上的 Clash 客户端  
+  luci-app-onliner：在线用户
+ [luci-app-openclash](https://github.com/vernesong/OpenClash):可运行在 OpenWrt 上的 Clash 客户端  
   [luci-app-passwall](https://github.com/xiaorouji/openwrt-passwall)：passwall  
   luci-app-samba4：samba网络共享  
   [luci-app-smartdns](https://github.com/pymumu/luci-app-smartdns)：SmartDNS 服务器  
@@ -40,7 +40,8 @@ WiFi名称:AreyouOK 无密码
   luci-app-ttyd：ttyd 终端  
   [luci-app-turboacc](https://github.com/chenmozhijin/turboacc)：Turbo ACC 网络加速  
   luci-app-upnp：通用即插即用（UPnP）  
-  luci-app-usb-printer：USB 打印服务器  
+  luci-app-udpxy：组播转http
+  luci-app-omcproxy：组播代理
   [luci-app-pushbot](https://github.com/zzsj0928/luci-app-pushbot))：全能推送  
   luci-app-socat：端口转发 
   tailscale：内网穿透
