@@ -361,28 +361,7 @@ jobs:
 
       - name: 复制自定义文件并添加编译信息
         run: |
-          cp -r files $OPENWRT_ROOT_PATH/files
-          chmod 755 $OPENWRT_ROOT_PATH/files/etc/uci-defaults/*
-          chmod 755 $OPENWRT_ROOT_PATH/files/usr/share/cmzj/openwrt-k_tool.sh
-          #替换编译者
-          if [ "$(curl -s https://api.github.com/users/$(echo ${{ github.repository }} | sed "s/\/.*//g") 2>/dev/null|grep -c "^  \"name\": null,$")" -ne '0' ];then
-            compiler=$(echo ${{ github.repository }} | sed "s/\/.*//g")
-          else
-            compiler=$(curl -s https://api.github.com/users/$(echo ${{ github.repository }} | sed "s/\/.*//g") 2>/dev/null  |grep '"name":\ "'|sed 's/  "name":\ "//'|sed 's/",//' 2>/dev/null)
-          fi
-          echo 'Compiled by' $compiler
-          sed -i "s/Compiled by 沉默の金/Compiled by $compiler/g" $OPENWRT_ROOT_PATH/files/etc/uci-defaults/zzz-chenmozhijin
-          cat $OPENWRT_ROOT_PATH/files/etc/uci-defaults/zzz-chenmozhijin | grep 'Compiled by'
-          echo "::notice ::编译者已替换为$compiler"
-          #添加编译信息
-          export OPENWRT_TAG_BRANCH="$(sed -n '/openwrt_tag\/branch/p' $GITHUB_WORKSPACE/config/${{ matrix.config }}/OpenWrt-K/compile.config | sed -e 's/.*=//')"
-          echo "COMPILE_START_TIME=\"${{ needs.planning.outputs.starttime }}\"" >> $OPENWRT_ROOT_PATH/files/etc/openwrt-k_info
-          echo "COMPILER=\"$compiler\"" >> $OPENWRT_ROOT_PATH/files/etc/openwrt-k_info
-          echo "RELEASE_NAME=\"OpenWrt-K_V${{ needs.planning.outputs.starttime }} (${{ matrix.target }}-${{ matrix.subtarget }})-[$OPENWRT_TAG_BRANCH]\"" >> $OPENWRT_ROOT_PATH/files/etc/openwrt-k_info
-          echo "RELEASE_TAG_NAME=\"v${{ needs.planning.outputs.starttime }}(${{ matrix.target }}-${{ matrix.subtarget }})-($OPENWRT_TAG_BRANCH)\""  >> $OPENWRT_ROOT_PATH/files/etc/openwrt-k_info
-          echo "REPOSITORY_URL=\"https://github.com/${{ github.repository }}\"" >> $OPENWRT_ROOT_PATH/files/etc/openwrt-k_info
-          echo "$OPENWRT_ROOT_PATH/files/etc/openwrt-k_info"
-          cat $OPENWRT_ROOT_PATH/files/etc/openwrt-k_info
+          
 
       - name: 加载自定义配置并生成配置文件
         working-directory: ${{ env.OPENWRT_ROOT_PATH }}
