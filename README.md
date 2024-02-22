@@ -25,7 +25,7 @@
 已内置以下软件包：
 
 1. LuCI插件：    
-  LuCI主题：[Argon](https://github.com/jerrykuku/luci-theme-argon)  
+  LuCI默认主题：[Argon](https://github.com/jerrykuku/luci-theme-argon)  
   [luci-app-argon-config](https://github.com/jerrykuku/luci-app-argon-config):Argon 主题设置  
   luci-app-quickstart：quickstart是iStoreOS界面  
   luci-app-iStore： 软件商店  
