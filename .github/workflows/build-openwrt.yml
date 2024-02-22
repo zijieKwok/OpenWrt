@@ -332,9 +332,6 @@ jobs:
           bash $GITHUB_WORKSPACE/scripts/fix_problem.sh ${{ matrix.config }}
           ##设置密码为password
           sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/' $OPENWRT_ROOT_PATH/package/base-files/files/etc/shadow
-          ##更换内核
-          rm -rf $OPENWRT_ROOT_PATH/include/kernel-5.15
-          cp -rf $GITHUB_WORKSPACE/file/kernel-5.15 $OPENWRT_ROOT_PATH/include/
           ##修改默认wifi名称ssid为AreyouOK
           sed -i 's/ssid=OpenWrt/ssid=AreyouOK/g' $OPENWRT_ROOT_PATH/package/kernel/mac80211/files/lib/wifi/mac80211.sh
           ##删除banner替换
