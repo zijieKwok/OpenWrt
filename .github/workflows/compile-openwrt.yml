@@ -22,7 +22,7 @@
 #SOFTWARE.
 #=============================================================================#
 
-name: compile OpenWrt
+name: Build OpenWrt
 on:
   schedule:
     - cron: '0 4 * * *'
@@ -312,11 +312,6 @@ jobs:
         working-directory: ${{ env.OPENWRT_ROOT_PATH }}
         run: git checkout $(sed -n '/openwrt_tag\/branch/p' $GITHUB_WORKSPACE/config/${{ matrix.config }}/OpenWrt-K/compile.config | sed -e 's/.*=//')
 
-      - name: 更换内核
-        run: |
-          rm -rf $OPENWRT_ROOT_PATH/include/kernel-5.15
-          cp -rf $GITHUB_WORKSPACE/file/kernel-5.15 $OPENWRT_ROOT_PATH/include/
-
       - name: 复制cmzj_package
         working-directory: ${{ env.WORKSPACE_ROOT_PATH }}
         run: |
@@ -395,12 +390,8 @@ jobs:
           echo -e "msgstr \"MAC地址\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "\nmsgid \"IPv4-Address\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "msgstr \"IPv4地址\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          
-          
-          
-          
-          
-          
+          # 修改默认wifi名称ssid为AreyouOK
+          sed -i 's/ssid=OpenWrt/ssid=AreyouOK/g' $OPENWRT_ROOT_PATH/package/kernel/mac80211/files/lib/wifi/mac80211.sh
           
       - name: 加载自定义配置并生成配置文件
         working-directory: ${{ env.OPENWRT_ROOT_PATH }}
