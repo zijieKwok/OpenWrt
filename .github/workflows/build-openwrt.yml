@@ -25,7 +25,7 @@
 name: Build OpenWrt
 on:
   schedule:
-    - cron: '0 4 * * *'
+#    - cron: '0 4 * * *'
 #  push:
 #    branches:
 #      - main
@@ -393,7 +393,7 @@ jobs:
           # 修改默认wifi名称ssid为AreyouOK
           sed -i 's/ssid=OpenWrt/ssid=AreyouOK/g' $OPENWRT_ROOT_PATH/package/kernel/mac80211/files/lib/wifi/mac80211.sh
           ##修改upnp到NAS菜单
-          sed -i 's/services/nas/g' $OPENWRT_ROOT_PATH/feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
+          #sed -i 's/services/nas/g' $OPENWRT_ROOT_PATH/feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
           
           
           
