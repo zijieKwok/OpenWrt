@@ -46,9 +46,9 @@
   luci-app-udpxy：组播转http  
   luci-app-omcproxy：组播代理  
   [luci-app-pushbot](https://github.com/zzsj0928/luci-app-pushbot))：全能推送  
-  luci-app-socat：端口转发 
-  tailscale：内网穿透
-
+  luci-app-socat：端口转发  
+  tailscale：内网穿透  
+  
 3.
 
     > + 以上软件包都在生成在Releases的package.zip文件中，可安装使用。
