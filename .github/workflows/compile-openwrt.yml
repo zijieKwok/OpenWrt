@@ -22,10 +22,10 @@
 #SOFTWARE.
 #=============================================================================#
 
-name: Build OpenWrt
-#on:
-#  schedule:
-#    - cron: '0 4 * * *'
+name: compile OpenWrt
+on:
+  schedule:
+    - cron: '0 4 * * *'
 #  push:
 #    branches:
 #      - main
