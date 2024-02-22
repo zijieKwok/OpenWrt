@@ -25,7 +25,7 @@ WiFi名称:AreyouOK 无密码
 1. LuCI插件：    
   [luci-app-argon-config](https://github.com/jerrykuku/luci-app-argon-config):Argon 主题设置  
   luci-app-quickstart：quickstart是iStoreOS界面  
-  luci-app-iStore： 软件商店
+  luci-app-iStore： 软件商店  
   luci-app-ddns：动态 DNS  
   [luci-app-diskman](https://github.com/lisaac/luci-app-diskman)：DiskMan 磁盘管理  
   luci-app-fileassistant：文件助手  
