@@ -2,7 +2,7 @@
 uci set network.lan.ipaddr="192.168.1.1"
 uci commit network
 /etc/init.d/network restart
-
+sed -i "/^DISTRIB_DESCRIPTION='/s/'$/ by JayKwok'/" /etc/openwrt_release
 [ -d "/etc/init.d" ] && chmod +x /etc/init.d/*
 [ -e "/usr/bin/AdGuardHome/AdGuardHome" ] && chmod 755 /usr/bin/AdGuardHome/AdGuardHome
 if [ "$( opkg list-installed 2>/dev/null| grep -c "^smartdns")" -ne '0' ] && [ ! "$(uci -q get smartdns.@server[0].name)" = "清华大学TUNA协会" ];then
@@ -241,11 +241,11 @@ if [ "$( opkg list-installed 2>/dev/null| grep -c "^dnsmasq")" -ne '0' ];then
   /etc/init.d/dnsmasq restart
 fi
 if [ "$( opkg list-installed 2>/dev/null| grep -c "^luci-app-openclash")" -ne '0' ] && [ "$(uci show openclash|grep -c ".port='1745'")" -ne '2' ];then
-  if [ "$(grep -c "^代理规则(by JayKwok)" /usr/share/openclash/res/rule_providers.list)" -eq '0' ];then
-      sed -i '1i 代理规则(by JayKwok),JayKwok,classical,chenmozhijin/OpenWrt-K/main/files/etc/openclash/rule_provider/,ProxyRule-chenmozhijin.yaml' "/usr/share/openclash/res/rule_providers.list"
+  if [ "$(grep -c "^代理规则(by 沉默の金)" /usr/share/openclash/res/rule_providers.list)" -eq '0' ];then
+      sed -i '1i 代理规则(by 沉默の金),沉默の金,classical,chenmozhijin/OpenWrt-K/main/files/etc/openclash/rule_provider/,ProxyRule-chenmozhijin.yaml' "/usr/share/openclash/res/rule_providers.list"
   fi
-  if [ "$(grep -c "^直连规则(by JayKwok)" /usr/share/openclash/res/rule_providers.list)" -eq '0' ];then
-      sed -i '1i 直连规则(by JayKwok),JayKwok,classical,chenmozhijin/OpenWrt-K/main/files/etc/openclash/rule_provider/,DirectRule-chenmozhijin.yaml' "/usr/share/openclash/res/rule_providers.list"
+  if [ "$(grep -c "^直连规则(by 沉默の金)" /usr/share/openclash/res/rule_providers.list)" -eq '0' ];then
+      sed -i '1i 直连规则(by 沉默の金),沉默の金,classical,chenmozhijin/OpenWrt-K/main/files/etc/openclash/rule_provider/,DirectRule-chenmozhijin.yaml' "/usr/share/openclash/res/rule_providers.list"
   fi
   if [ "$( opkg list-installed 2>/dev/null| grep -c "^luci-app-adguardhome")" -ne '0' ];then
     n=0
@@ -302,14 +302,14 @@ if [ "$( opkg list-installed 2>/dev/null| grep -c "^luci-app-openclash")" -ne '0
   uci set openclash.@rule_provider_config[-1].config='all'
   uci set openclash.@rule_provider_config[-1].group='DIRECT'
   uci set openclash.@rule_provider_config[-1].position='0'
-  uci add_list openclash.@rule_provider_config[-1].rule_name='直连规则(by JayKwok)'
+  uci add_list openclash.@rule_provider_config[-1].rule_name='直连规则(by 沉默の金)'
   uci add_list openclash.@rule_provider_config[-1].rule_name='国内IP白名单'
   uci add_list openclash.@rule_provider_config[-1].rule_name='国内域名白名单'
   uci add openclash rule_provider_config
   uci set openclash.@rule_provider_config[-1].enabled='1'
   uci set openclash.@rule_provider_config[-1].interval='86400'
   uci set openclash.@rule_provider_config[-1].config='all'
-  uci add_list openclash.@rule_provider_config[-1].rule_name='代理规则(by JayKwok)'
+  uci add_list openclash.@rule_provider_config[-1].rule_name='代理规则(by 沉默の金)'
   uci commit openclash
 fi
 echo "0 2 * * * /usr/share/cmzj/openwrt-k_tool.sh update rules" >>/etc/crontabs/root
@@ -319,4 +319,3 @@ uci commit
 /etc/init.d/sing-box stop
 /etc/init.d/sing-box disable
 exit 0
-
