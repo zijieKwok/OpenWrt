@@ -43,7 +43,7 @@
   luci-app-ttyd：ttyd 终端  
   [luci-app-turboacc](https://github.com/chenmozhijin/turboacc)：Turbo ACC 网络加速  
   luci-app-upnp：通用即插即用（UPnP）  
-  luci-app-udpxy：组播转http
+  luci-app-udpxy：组播转http  
   luci-app-omcproxy：组播代理  
   [luci-app-pushbot](https://github.com/zzsj0928/luci-app-pushbot))：全能推送  
   luci-app-socat：端口转发 
