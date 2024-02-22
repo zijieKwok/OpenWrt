@@ -392,7 +392,7 @@ jobs:
           echo -e "msgstr \"IPv4地址\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           # 修改默认wifi名称ssid为AreyouOK
           sed -i 's/ssid=OpenWrt/ssid=AreyouOK/g' $OPENWRT_ROOT_PATH/package/kernel/mac80211/files/lib/wifi/mac80211.sh
-          
+
       - name: 加载自定义配置并生成配置文件
         working-directory: ${{ env.OPENWRT_ROOT_PATH }}
         run: |
