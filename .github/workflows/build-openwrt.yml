@@ -360,9 +360,6 @@ jobs:
           echo -e "msgstr \"MAC地址\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "\nmsgid \"IPv4-Address\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
           echo -e "msgstr \"IPv4地址\"" >> $OPENWRT_ROOT_PATH/feeds/luci/modules/luci-base/po/zh_Hans/base.po
-          ##immortalwrt源码增加汉化
-          rm -rf $OPENWRT_ROOT_PATH/feeds/packages/lang/golang
-          git clone https://github.com/sbwml/packages_lang_golang -b 22.x $OPENWRT_ROOT_PATH/feeds/packages/lang/golang
 
       - name: 更新smartdns、netdata
         run: |
