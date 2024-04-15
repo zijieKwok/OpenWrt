@@ -337,9 +337,9 @@ jobs:
           ##删除banner替换
           rm -rf $OPENWRT_ROOT_PATH/package/base-files/files/etc/banner
           cp -rf $GITHUB_WORKSPACE/file/banner $OPENWRT_ROOT_PATH/package/base-files/files/etc/
-          ##删除banner替换
+          ##删除golang替换
           rm -rf $OPENWRT_ROOT_PATH/feeds/packages/lang/golang
-          cp -rf $GITHUB_WORKSPACE/packages_lang_golang/ $OPENWRT_ROOT_PATH/feeds/packages/lang/golang
+          git clone https://github.com/sbwml/packages_lang_golang -b 22.x $OPENWRT_ROOT_PATH/feeds/packages/lang/golang
           ##Socat更改为端口转发
           sed -i 's/msgstr "Socat"/msgstr "端口转发"/g' $OPENWRT_ROOT_PATH/package/cmzj_package/luci-app-socat/po/zh_Hans/socat.po
           ##修改ttyd到系统菜单
